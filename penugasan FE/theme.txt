@@ -1,0 +1,66 @@
+Fitur Change Theme
+
+<button id="theme-toggle" onclick="toggleTheme()" ><img src="icons/theme.png" alt="☀️"></button>
+
+*setiap button diatas di click akan tersambung ke function dibawah
+
+function toggleTheme() {
+    const body = document.body;
+
+    // Toggle between 'light' and 'dark' classes
+    if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+    } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+    }
+
+    // Optional: Save theme preference in localStorage
+    const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+}
+
+// Initialize theme from localStorage on page load
+window.onload = function() {
+    const savedTheme = localStorage.getItem('theme');
+    document.body.classList.add(savedTheme || 'light'); // Default to 'light' if no theme is saved
+};
+
+*setiap button di click akan merubah variable data-themen yang ada di tag html di bawah
+ dari "dark" ke "light" jika class list berisi "dark" atau dari "light" ke "dark" jika class list berisi "light"
+
+<html lang="en" data-theme="dark">
+
+*untuk setiap class "dark" atau "light" terdapat css stylenya sendiri
+
+.light {
+    --background-color: #ededed;
+    --text-color: #000000;
+    --text-color2: #272727;
+    --text-color3: #ededed;
+    --btn1-background: #ededed;
+    --btn2-background: #000000;
+    --btn1-text: #000000;
+    --btn2-text: #ededed;
+    --card-background: #ededed;
+}
+
+.dark {
+    --background-color: #000000;
+    --text-color: #ededed;
+    --text-color2: #a1a1a1;
+    --btn1-background: #000000;
+    --btn2-background: #ededed;
+    --btn1-text: #ededed;
+    --btn2-text: #000000;
+    --card-background: #000000;
+}
+
+*code css diatas berlaku sebagai variabel yang menetukan warna komponen komponen yang akan berubah warna saat theme berganti
+contoh :
+h1, h3 {
+    -webkit-text-fill-color: var(--text-color);
+}
+
+text h1 dan h3 akan akan berwarna #000000 untuk light theme dan berwarna #ededed untuk dark theme

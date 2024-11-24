@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Document</title>
+    <nav>
+        <div class="left">
+            <div class="nav-logo">
+                <span><b>OmahTI Analytics</b></span>
+            </div>
+            <div class="nav-links">
+                <a href="#divisions">Divisions</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="right">
+            <button id="theme-toggle" onclick="toggleTheme()" ><img src="icons/theme.png" alt="☀️"></button>
+            <button id="btn1">Sign in</button>
+            <button id="btn2">Sign up</button>
+        </div>
+    </nav>
+</head>
+<body>
+    <header>
+        <a href="#divisions">All OmahTI Divisions -></a>
+        <h1>Get essential insights<br>on OmahTI.</h1>
+        <div class="headerbutton">
+            <button id="btn2">Get Started</button>
+            <button id="btn1">More Analytics</button>
+        </div>
+    </header>
+    <main>
+        <div class="item1">
+            <p><img src="icons/Code.png" alt="#">Project Tracking</p>
+            <h2><b>Monitor progress and<br>contributions across</b> all<br>OmahTI projects.</h2>
+            <img id="item-img" src="image/bg.png" alt="#">
+        </div>
+        <div class="item2">
+            <p><img src="icons/Trophy.png" alt="#">Competition Analytics</p>
+            <h2><b>Track participation and
+                <br>contributions</b> in IT<br> compatitions.</h2>
+            <img id="item-img" src="image/bg.png" alt="image">
+        </div>
+        <div class="item3">
+            <div class="item3-1">
+                <h1>Latest<br>projects and<br>winnings by<br>OmahTI<br>divisions.</h1>
+                <div id="contributors">
+                    <p>Contributors:</p>
+                    <ul id="list">
+                        <li class="contributors">Andreandhiki Riyanta</li>
+                        <li class="contributors">Fahmi Shampoerna</li>
+                        <li class="contributors">Daniel Tulung</li>
+                        <li class="contributors hidden">Rama Andhika Pratama</li>
+                        <li class="contributors hidden">Muhammad Hanif</li>
+                        <li class="contributors hidden">Wibi Laksono Wijaya</li>
+                    </ul>
+                </div>
+                <span class="more-btn" id="more-btn" onclick="moreItems()">+3 more</span>
+            </div>
+            <div class="item3-2">
+                <div id="item3-2">
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>OmahTI Learning Center</h3>
+                    </div>
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>Data Royale</h3>
+                    </div>
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>Oem Oem</h3>
+                    </div>
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>1st Place Datathon</h3>
+                    </div>
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>PORSENIGAMA</h3>
+                    </div>
+                    <div class="project-cards">
+                        <img src="image/bg.png" alt="image">
+                        <h3>FMIPA Projects</h3>
+                    </div>
+                    <div class="project-cards hidden">
+                        <img src="image/bg.png" alt="image">
+                        <h3>MALPRES MIPA</h3>
+                    </div>
+                    <div class="project-cards hidden">
+                        <img src="image/bg.png" alt="image">
+                        <h3>FEB UGM's Website</h3>
+                    </div>
+                    <div class="project-cards hidden">
+                        <img src="image/bg.png" alt="image">
+                        <h3>Kopassus</h3>
+                    </div>
+                </div>
+                
+                <div id="item3-22">
+                    <button class="toggle-btn" id="toggle-btn" onclick="toggleItems()">More</button>
+                </div>
+            </div>
+            
+            <div class="item3-3">
+                <div >
+                    <h2><b>Ready to share?</b> Start by creating an account.<br>Speak to an <mark>expert</mark> if you need assistance.</h2>
+                    <button id="btn2">Sign up</button>
+                    <button id="btn1">Contact</button>
+                </div >
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <div class="col1">
+        <p>Information</p>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+    <div class="col2">
+        <p>Social</p>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+    </div>
+    <div class="col3">
+        <ul>
+            <li id="system"><a href="#">All systems normal</a></li>
+        </ul>
+    </div> 
+</footer>
+
+<script>
+    function toggleItems() {
+        const container = document.getElementById('item3-2');
+        const hiddenItems = container.querySelectorAll('.hidden');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const isCollapsed = toggleBtn.textContent === "More";
+
+        // Show or hide hidden elements
+        hiddenItems.forEach((item) => {
+            item.style.display = isCollapsed ? "block" : "none";
+        });
+
+        // Update button text
+        toggleBtn.textContent = isCollapsed ? "Collapse" : "More";
+    }
+
+    // Initialize hidden elements' display style
+    document.querySelectorAll('.hidden').forEach((item) => {
+        item.style.display = "none";
+    });
+    function moreItems() {
+        const container = document.getElementById('contributors');
+        const hiddenItems = container.querySelectorAll('.hidden');
+        const toggleBtn = document.getElementById('more-btn');
+        const isCollapsed = toggleBtn.textContent === "+3 more";
+
+        // Show or hide hidden elements
+        hiddenItems.forEach((item) => {
+            item.style.display = isCollapsed ? "block" : "none";
+        });
+
+        // Update button text
+        toggleBtn.textContent = isCollapsed ? "Show less" : "+3 more";
+    }
+
+    // Initialize hidden elements' display style
+    document.querySelectorAll('.hidden').forEach((item) => {
+        item.style.display = "none";
+    });
+
+    
+    function toggleTheme() {
+    const body = document.body;
+
+    // Toggle between 'light' and 'dark' classes
+    if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+    } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+    }
+
+    // Optional: Save theme preference in localStorage
+    const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+}
+
+// Initialize theme from localStorage on page load
+window.onload = function() {
+    const savedTheme = localStorage.getItem('theme');
+    document.body.classList.add(savedTheme || 'light'); // Default to 'light' if no theme is saved
+};
+
+</script>
+</html>
